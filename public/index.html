@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="A simple PWA Hangman Game you can run offline made by Abolfazl Mousavi"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo512.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/sw.js").then(
+          function (registration) {
+            console.log("Service worker registration succeeded:", registration);
+          },
+          function (error) {
+            console.log("Service worker registration failed:", error);
+          }
+        );
+      } else {
+        console.log("Service workers are not supported.");
+      }
+    </script>
+  </body>
+</html>
